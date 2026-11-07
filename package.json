@@ -1,0 +1,25 @@
+{
+  "name": "wa-rest-api",
+  "version": "1.0.0",
+  "description": "This API is made for the needs of WhatsApp bots",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [
+    "whatsapp",
+    "api",
+    "scraper"
+  ],
+  "author": "myname31",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
