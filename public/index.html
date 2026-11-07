@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="WA REST API — layanan API gratis untuk developer.">
+  <title>WA REST API — Developer Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/animation.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="skeleton-loader" class="app-loader" aria-label="Memuat dashboard">
+    <div class="loader-mark">W</div><span>WA REST API</span><div class="loader-track"><i></i></div>
+  </div>
+
+  <div id="app" class="app-container hidden">
+    <header class="main-header">
+      <div class="header-left">
+        <button id="sidebar-toggle" class="btn-icon mobile-only" aria-label="Buka navigasi"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <a class="brand" href="#dashboard" aria-label="WA REST API beranda">
+          <span class="brand-mark">W</span><span class="brand-copy"><strong>WA REST API</strong><small>DEVELOPER CONSOLE</small></span>
+        </a>
+      </div>
+      <div class="header-center"><span class="api-name">Public API</span><span class="api-version">v1.0.0</span><span id="api-status-badge" class="badge badge-connecting">Connecting</span></div>
+      <div class="header-right">
+        <div class="datetime-display"><strong id="realtime-clock">--:--:--</strong><span id="realtime-date">Memuat tanggal…</span></div>
+        <button id="theme-toggle" class="btn-icon theme-toggle" type="button" aria-label="Ganti tema" title="Ganti tema"><svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg><svg class="moon-icon" viewBox="0 0 24 24"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg></button>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <aside id="main-sidebar" class="sidebar">
+        <div class="sidebar-label">WORKSPACE</div>
+        <nav class="sidebar-nav" aria-label="Navigasi utama">
+          <a href="#dashboard" class="nav-item active" data-target="dashboard-section"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg><span>Overview</span></a>
+          <a href="#explorer" class="nav-item" data-target="explorer-section"><svg viewBox="0 0 24 24"><path d="m8 5-5 7 5 7m8-14 5 7-5 7m-2-16-4 18"/></svg><span>API Explorer</span></a>
+          <a href="#docs" class="nav-item" data-target="docs-section"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg><span>Documentation</span></a>
+        </nav>
+        <div class="sidebar-label sidebar-label-spaced">SYSTEM</div>
+        <nav class="sidebar-nav">
+          <a href="#logs" class="nav-item" data-target="logs-section"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/><circle cx="7" cy="5" r="1"/><circle cx="7" cy="12" r="1"/><circle cx="7" cy="19" r="1"/></svg><span>System Logs</span></a>
+          <a href="#settings" class="nav-item" data-target="settings-section"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.7-.7a8 8 0 0 1-1.7 1l-.3 1.8h-2.8l-.3-1.8a8 8 0 0 1-1.7-1l-1.7.7-1.4-2.4L5.3 15a8 8 0 0 1 0-2l-1.4-1.1 1.4-2.4 1.7.7a8 8 0 0 1 1.7-1L9 7.4h2.8l.3 1.8a8 8 0 0 1 1.7 1l1.7-.7 1.4 2.4-1.4 1.1a8 8 0 0 1-.1 2Z"/></svg><span>Preferences</span></a>
+        </nav>
+        <div class="sidebar-footer"><div class="free-indicator"><span></span><div><strong>Free & Open</strong><small>Public access · No API key</small></div></div><p>Made for the developer community.</p></div>
+      </aside>
+
+      <main class="main-content">
+        <section id="dashboard-section" class="content-section">
+          <div class="page-heading"><div><div class="eyebrow">WORKSPACE / OVERVIEW</div><h1>Overview</h1><p>Ringkasan aktivitas dan kondisi layanan WA REST API.</p></div><span class="public-chip"><span></span> Public API · Gratis</span></div>
+          <div class="stats-grid" id="stats-container"></div>
+          <div class="section-title-row"><div><h2>System activity</h2><p>Pesan runtime dari dashboard dan API.</p></div><span class="live-label"><i></i> LIVE CONSOLE</span></div>
+          <div class="console-card"><div class="console-header"><div class="console-title"><span class="console-dot"></span><strong>Runtime output</strong><span class="console-subtitle">session stream</span></div><div class="console-actions"><button id="btn-clear-console" class="btn btn-secondary btn-sm">Clear</button><button id="btn-copy-console" class="btn btn-secondary btn-sm">Copy</button><button id="btn-export-console" class="btn btn-secondary btn-sm">Export</button></div></div><div id="live-console-output" class="console-body" aria-live="polite"></div></div>
+          <div class="note-strip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 11v5m0-8h.01"/></svg><span>Layanan ini terbuka untuk semua orang. Tidak diperlukan akun, login, atau API key.</span></div>
+        </section>
+
+        <section id="explorer-section" class="content-section hidden">
+          <div class="page-heading"><div><div class="eyebrow">DEVELOPER TOOLS / REQUEST BUILDER</div><h1>API Explorer</h1><p>Pilih endpoint, isi parameter, lalu kirim request langsung dari browser.</p></div><span class="public-chip"><span></span> No authentication</span></div>
+          <div class="explorer-toolbar"><div class="search-container"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="search" id="search-endpoint-input" placeholder="Cari endpoint atau deskripsi…" autocomplete="off"></div><div class="endpoint-count"><strong id="endpoint-count">All endpoints</strong><span>·</span><span>Public access</span></div></div>
+          <div id="explorer-accordion" class="accordion-container"></div>
+        </section>
+
+        <section id="docs-section" class="content-section hidden">
+          <div class="page-heading"><div><div class="eyebrow">RESOURCES / REFERENCE</div><h1>Documentation</h1><p>Referensi endpoint, parameter, dan contoh struktur respons.</p></div><span class="public-chip"><span></span> Open documentation</span></div>
+          <div class="docs-intro"><div class="docs-intro-icon"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21z"/><path d="M4 5.5V21m4-13h8m-8 4h8"/></svg></div><div><strong>Getting started</strong><p>Semua endpoint menggunakan base URL website ini. Endpoint publik dapat dipanggil tanpa token atau header autentikasi.</p><code>GET /api/…</code></div></div>
+          <div id="docs-container" class="docs-list"></div>
+        </section>
+
+        <section id="logs-section" class="content-section hidden"><div class="page-heading"><div><div class="eyebrow">SYSTEM / DIAGNOSTICS</div><h1>System logs</h1><p>Log runtime selama sesi dashboard ini berlangsung.</p></div></div><div class="console-card"><div class="console-header"><div class="console-title"><span class="console-dot"></span><strong>Session log</strong></div><div class="console-actions"><button id="btn-copy-logs" class="btn btn-secondary btn-sm">Copy logs</button></div></div><div id="logs-history-output" class="console-body logs-history"></div></div><p class="helper-text">Log ini bersifat sementara dan tersimpan di browser selama halaman terbuka; bukan arsip server permanen.</p></section>
+
+        <section id="settings-section" class="content-section hidden"><div class="page-heading"><div><div class="eyebrow">PREFERENCES / APPEARANCE</div><h1>Preferences</h1><p>Atur tampilan dashboard sesuai kenyamanan Anda.</p></div></div><div class="settings-card"><div class="settings-copy"><div class="settings-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></div><div><strong>Appearance</strong><p>Pilih tema terang atau gelap. Preferensi akan disimpan di perangkat ini.</p></div></div><div class="theme-options"><button class="theme-option" data-set-theme="light"><span class="theme-preview preview-light"></span><span>Light</span></button><button class="theme-option" data-set-theme="dark"><span class="theme-preview preview-dark"></span><span>Dark</span></button><button class="theme-option" data-set-theme="system"><span class="theme-preview preview-system"></span><span>System</span></button></div></div><div class="settings-card settings-info"><div><strong>About this API</strong><p>WA REST API adalah layanan publik gratis. Tidak ada akun, login, API key, paket premium, atau fitur berbayar.</p></div><span class="free-pill">100% FREE</span></div></section>
+      </main>
+    </div>
+  </div>
+  <script src="js/utils.js"></script><script src="js/theme.js"></script><script src="js/api.js"></script><script src="js/dashboard.js"></script>
+</body>
+</html>
