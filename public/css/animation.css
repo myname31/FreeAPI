@@ -1,0 +1,4 @@
+:root{--ease-standard:cubic-bezier(.2,.7,.2,1);--transition-speed:220ms}
+.fade-in{animation:fadeIn .28s ease both}.slide-up{animation:slideUp .3s ease both}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes slideUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.ripple-surface{position:relative;overflow:hidden}.ripple-effect{position:absolute;border-radius:50%;transform:scale(0);animation:ripple .55s linear;background:rgba(140,155,245,.18);pointer-events:none}@keyframes ripple{to{transform:scale(4);opacity:0}}
+.spinner{width:14px;height:14px;border:2px solid transparent;border-top-color:currentColor;border-radius:50%;display:inline-block;animation:spin .6s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
